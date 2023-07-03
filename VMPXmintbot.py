@@ -2,7 +2,7 @@ import time
 from web3 import Web3
 
 # Set up Web3 instance and connect to the Ethereum mainnet
-web3 = Web3(Web3.HTTPProvider('Insert QuickNode API address'))
+web3 = Web3(Web3.HTTPProvider('Infura / Quicknode HTTP Endpoint'))
 
 # Set the contract address and ABI
 contract_address = '0xb48Eb8368c9C6e9b0734de1Ef4ceB9f484B80b9C'
@@ -58,11 +58,7 @@ contract = web3.eth.contract(address=contract_address, abi=contract_abi)
 private_key = input("Enter your private key: ")
 account_address = input("Enter your account address: ")
 gwei = float(input("Enter the Gwei value: "))
-gas_limit = int(input("Enter the gas limit: "))
 power = int(input("Enter the power value: "))
-
-# Convert Gwei to Wei
-gas_price = web3.to_wei(gwei, 'gwei')
 
 # Set the explicit starting block number
 starting_block_number = 17622079
@@ -79,6 +75,15 @@ while current_block_number < starting_block_number:
     time.sleep(780)  # Delay for 13 minutes (780 seconds)
     current_block_number = web3.eth.block_number
 
+# Check wallet balance
+balance = web3.eth.get_balance(account_address)
+print(f"Wallet Balance: {web3.from_wei(balance, 'ether')} ETH")
+
+# Check if balance is sufficient
+if balance < web3.to_wei(gwei, 'gwei') * 30000000:
+    print("Insufficient balance in the wallet. Please fill the wallet and retry.")
+    exit()
+
 # Get the nonce
 nonce = web3.eth.get_transaction_count(account_address)
 
@@ -86,10 +91,10 @@ nonce = web3.eth.get_transaction_count(account_address)
 chain_id = 1
 
 # Mint VMPX tokens
-transaction = contract.functions.mint(power).buildTransaction({
+transaction = contract.functions.mint(power).build_transaction({
     'from': account_address,
-    'gas': gas_limit,
-    'gasPrice': gas_price,
+    'gas': 30000000,
+    'gasPrice': web3.to_wei(gwei, 'gwei'),
     'nonce': nonce,
     'chainId': chain_id
 })
@@ -102,7 +107,6 @@ txn_hash = web3.eth.send_raw_transaction(signed_txn.rawTransaction)
 print("Minting VMPX tokens...")
 print(f"Account Address: {account_address}")
 print(f"Gwei: {gwei}")
-print(f"Gas Limit: {gas_limit}")
 print(f"Power: {power}")
 print(f"Starting Block Number: {starting_block_number}")
 print("Waiting for the transaction to be mined...")
@@ -115,3 +119,4 @@ if txn_receipt.status == 1:
     print("Batch claimed successfully!")
 else:
     print("Batch claim failed.")
+    
