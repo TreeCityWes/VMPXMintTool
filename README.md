@@ -2,7 +2,14 @@
 VMPX Mint Bot on Ethereum 
 # VMPX Mint Bot
 
-The VMPX Mint Bot is a Python script that automates the process of minting VMPX tokens as soon as the contract reaches a specified block number. It interacts with the VMPX smart contract and allows users to set their private key, account address, gas parameters, and power value for minting.
+I am not a coder. Do not give your private keys do anyone. 
+I do not know if this script will work and am posting it for community review and feedback. 
+The script successfully asks for your private key, public key, gwei, gas limit, and power value. 
+It should then build a transaction and broadcase the transaction when the block number listed in the VMPX contract hits. 
+It does not use a smart contract. 
+
+The VMPX Mint Bot is a Python script that automates the process of minting VMPX tokens as soon as the contract reaches a specified block number. 
+It interacts with the VMPX smart contract and allows users to set their private key, account address, gas parameters, and power value for minting.
 
 ## Prerequisites
 
