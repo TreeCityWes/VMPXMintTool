@@ -2,7 +2,7 @@
 VMPX Mint Bot on Ethereum 
 # VMPX Mint Bot
 
-I am not a coder. Do not give your private keys do anyone. 
+I am not a coder. Do not give your private keys to anyone. 
 I do not know if this script will work and am posting it for community review and feedback. 
 The script successfully asks for your private key, public key, gwei, gas limit, and power value. 
 It should then build a transaction and broadcase the transaction when the block number listed in the VMPX contract hits. 
