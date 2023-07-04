@@ -1,13 +1,13 @@
-# VMPXMintBot
-VMPX Mint Bot on Ethereum 
-# VMPX Mint Bot
+# VMPX Mint Tool
+VMPX Mint Tool on Ethereum 
+# VMPX Mint Tool
 
 Xenians! I am not a coder but this was successful on the X1 Devnet. I am posting it for community review and feedback. 
 The script asks for your private key, public key, gwei, and power value. 
 It then builds a transaction and broadcasts when the block number listed in the script hits. 
 It does not use a smart contract. 
 
-The VMPX Mint Bot is a Python script that automates the process of minting VMPX tokens as soon as the contract reaches a specified block number. 
+The VMPX Mint Tool is a Python script that automates the process of minting VMPX tokens as soon as the contract reaches a specified block number. 
 It interacts with the VMPX smart contract and allows users to set their private key, account address, gas parameters, and power value for minting.
 
 ## Prerequisites
@@ -19,9 +19,9 @@ Before running the script, make sure you have the following:
 
 ## Usage
 
-1. Clone this repository or download the `vmpxmintbot.py` file.
-2. Open a terminal or command prompt and navigate to the directory containing the `vmpxmintbot.py` file.
-3. Run the script with the command `python vmpxmintbot.py`.
+1. Clone this repository or download the `vmpxminttool.py` file.
+2. Open a terminal or command prompt and navigate to the directory containing the `vmpxminttool.py` file.
+3. Run the script with the command `python vmpxminttool.py`.
 
 ## Configuration
 
