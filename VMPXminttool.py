@@ -66,7 +66,7 @@ power = int(input("Enter the power value: "))
 gas_limit = int(input("Enter the gas limit (1000000 to 30000000): "))
 
 # Set the explicit starting block number
-starting_block_number = 17622079  # Replace with your starting block number
+starting_block_number = 17622080  # Replace with your starting block number
 
 # Display block numbers
 current_block_number = web3.eth.block_number
